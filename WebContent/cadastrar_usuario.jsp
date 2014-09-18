@@ -12,6 +12,8 @@
 <body>
 	<%
 
+	
+	
 			Usuario u = new Usuario();
 			u.setNome(request.getParameter("nome"));
 			u.setEmail(request.getParameter("email"));
@@ -20,15 +22,15 @@
 			Fachada f = new Fachada();
 			f.cadastrarUsuario(u);
 
+			
+			
 			//	 } else {
 			//	 request.setAttribute("msg", "Preencha os campos vazios.");
 			//}
 
 			request.setAttribute("msg", "Gravado com sucesso!");
 			session.setAttribute("usuario", u);
-			response.sendRedirect("Entrou.html");
-
-
+			response.sendRedirect("http://localhost:8085/2DEVS/Entrou.html");
 	%>
 </body>
 </html>
