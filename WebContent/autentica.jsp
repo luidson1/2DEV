@@ -1,6 +1,6 @@
 <%@page import="fafica.org.br.Repositorios.UsuarioRepositorio"%>
 <%@page import="javax.swing.JOptionPane"%>
-<%@page import="fafica.org.br.Fachada.Fachada"%>
+<%@page import="fafica.org.br.Fachada.Facade"%>
 <%@page import="fafica.org.br.Modelo.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -12,24 +12,24 @@
 <body>
 	<%
 		Usuario usuario = new Usuario();
-		Fachada fachada = new Fachada();
+			Facade fachada = new Facade();
 
-		String email = request.getParameter("txtEmail");
-		String senha = request.getParameter("txtSenha");
+			String email = request.getParameter("txtEmail");
+			String senha = request.getParameter("txtSenha");
 
-		// metodos de buscar e retornar as informações do usuario do banco
-		boolean autenticado = fachada.Login(email, senha);
+			// metodos de buscar e retornar as informações do usuario do banco
+			boolean autenticado = fachada.Login(email, senha);
 
-		if (autenticado) {
-			fachada.retornarusuario(email, senha);
-			session.setAttribute("usuario", email);
-			response.sendRedirect("Entrou.html");
-		} else {
-			request.setAttribute("msg", "Dados inválidos");
-			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("Entrar_Login.html");
-			dispatcher.forward(request, response);
-		}
+			if (autenticado) {
+		fachada.retornarusuario(email, senha);
+		session.setAttribute("usuario", email);
+		response.sendRedirect("Entrou.html");
+			} else {
+		request.setAttribute("msg", "Dados inválidos");
+		RequestDispatcher dispatcher = request
+				.getRequestDispatcher("Entrar_Login.html");
+		dispatcher.forward(request, response);
+			}
 	%>
 
 

@@ -1,6 +1,5 @@
-<%@page import="fafica.org.br.Fachada.Fachada"%>
+<%@page import="fafica.org.br.Fachada.Facade"%>
 <%@page import="javax.swing.JOptionPane"%>
-<%@page import="org.apache.tomcat.dbcp.jocl.JOCLContentHandler"%>
 <%@page import="fafica.org.br.Modelo.Profissionais"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -11,24 +10,26 @@
 </head>
 <body>
 	<%
-		String titulo_profissao = request.getParameter("txtTituloProf");
-		String descricao_exp = request
-				.getParameter("txtAreaExperienciaProf");
-		String descricao_serv = request.getParameter("txtAreaContenos");
-		Profissionais p = new Profissionais();
-
 		try {
 
-			p.setProfissao(titulo_profissao);
-			p.setDescricao_experiencia(descricao_exp);
-			p.setDescricao_profissional(descricao_serv);
+			String Profissao = request.getParameter("txtTituloProf");
+			String Descricao_experiencia = request
+					.getParameter("txtAreaExperienciaProf");
+			String Descricao_profissional = request
+					.getParameter("txtAreaContenos");
+			Profissionais p = new Profissionais();
 
-			Fachada f = new Fachada();
+			p.setProfissao(Profissao);
+			p.setDescricao_experiencia(Descricao_experiencia);
+			p.setDescricao_profissional(Descricao_profissional);
+
+			Facade f = new Facade();
 
 			f.cadastrarprofissional(p);
 
-		} catch (NumberFormatException e) {
-			JOptionPane.showMessageDialog(null, e.getMessage());
+		} catch (Exception e) {
+			e.printStackTrace();
+			//JOptionPane.showMessageDialog(null, e.getMessage());
 		}
 	%>
 </body>

@@ -1,0 +1,109 @@
+--TABELA USUARIO
+CREATE TABLE usuario (
+nome varchar (200) not null,
+
+email varchar (200) not null unique,
+
+senha varchar (15) not null,
+
+reputacao int (2),
+
+endereco varchar (400),
+
+cidade varchar(20),
+
+uf varchar (2),
+
+primary key (email)
+);
+
+
+--TABELA CLIENTE
+CREATE TABLE cliente (
+email_usuario varchar2(40),
+PRIMARY KEY (email_usuario),
+FOREIGN KEY (email_usuario) REFERENCES usuario (email)
+);
+
+--TABELA PROFISSIONAIS
+codigo1 int (10) not null auto_increment,
+
+profissao varchar (300) not null,
+
+descricao_profissional varchar (900)not null,
+
+descricao_experiencia varchar (900) not null,
+
+positivos int(10),
+
+negativos int (10),
+
+primary key (codigo1)
+,
+
+FOREIGN KEY (email_usuario) REFERENCES usuario (email)
+);
+
+--TABELA SERVICO
+CREATE TABLE servico (
+codigo int (20) not null auto_increment,
+
+Titulo_servico varchar (200) not null,
+
+Estado varchar (30),
+
+Cidade varchar (200),
+
+Orcamento float (10),
+
+Descricao_serv varchar (900),
+
+Categoria int (20),
+
+primary key (codigo)
+);
+);
+
+--TABELA CATEGORIA
+CREATE TABLE categoria (
+cod_servico number(5) not null,
+categoria varchar(60),
+PRIMARY KEY (cod_servico),
+FOREIGN KEY (cod_servico) REFERENCES servico (cod)
+);
+
+--TABELA CONSULTA
+CREATE TABLE consulta (
+email_usuario varchar2(40) not null,
+cod_servico number(5) not null,
+PRIMARY KEY (email_usuario, cod_servico),
+FOREIGN KEY (email_usuario) REFERENCES profissional (email_usuario),
+FOREIGN KEY (cod_servico) REFERENCES servico (cod)
+);
+
+--TABELA PUBLICA
+CREATE TABLE publica (
+email_usuario varchar2(40) not null,
+cod_servico number(5) not null,
+PRIMARY KEY (email_usuario, cod_servico),
+FOREIGN KEY (email_usuario) REFERENCES profissional (email_usuario),
+FOREIGN KEY (cod_servico) REFERENCES servico (cod)
+);
+
+--TABELA BUSCA
+CREATE TABLE busca (
+email_usuario varchar2(40) not null,
+cod_servico number(5) not null,
+PRIMARY KEY (email_usuario, cod_servico),
+FOREIGN KEY (email_usuario) REFERENCES profissional (email_usuario),
+FOREIGN KEY (cod_servico) REFERENCES servico (cod)
+);
+
+--TABELA OFERTA
+CREATE TABLE oferta (
+cod number(5) not null,
+valor number(8,2),
+email_usuario varchar2(40) not null,
+PRIMARY KEY (cod),
+FOREIGN KEY (email_usuario) REFERENCES profissional (email_usuario)
+);

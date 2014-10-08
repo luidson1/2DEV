@@ -9,6 +9,10 @@ public class Profissionais {
 	private int positivos = 0;
 	private int negativos = 0;
 
+	public Profissionais() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * codigo do profissional // profissão // descrição do curriculum do
 	 * profissional // pontos positivos da reputação do profissional // pontos
@@ -39,10 +43,6 @@ public class Profissionais {
 	// seta o codigo do profissional
 	public void setCodigo1(int codigo1) {
 		this.codigo1 = codigo1;
-	}
-
-	public Profissionais() {
-		// TODO Auto-generated constructor stub
 	}
 
 	// retorna os pontos positivos do profissional

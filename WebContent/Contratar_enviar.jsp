@@ -1,6 +1,6 @@
 <%@page import="javax.websocket.SendResult"%>
 <%@page import="org.apache.catalina.ha.backend.Sender"%>
-<%@page import="fafica.org.br.Fachada.Fachada"%>
+<%@page import="fafica.org.br.Fachada.Facade"%>
 <%@page import="fafica.org.br.Modelo.Servicos"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -12,21 +12,21 @@
 <body>
 	<%
 		/*		servicos.setCategoria(Integer.parseInt(request
-			 .getParameter(("slcCategoria"))));
-			 servicos.setEstado(request.getParameter("estado"));
-			 servicos.setCidade(request.getParameter("cidade"));
-			 servicos.setOrcamento(Integer.parseInt(request
-			 .getParameter("txtOrcamento")));
-			 servicos.setDescricao_serv(request.getParameter("txtAreaOrcamento"));
-		 */
-		Servicos s = new Servicos();
-		Fachada f = new Fachada();
+		 .getParameter(("slcCategoria"))));
+		 servicos.setEstado(request.getParameter("estado"));
+		 servicos.setCidade(request.getParameter("cidade"));
+		 servicos.setOrcamento(Integer.parseInt(request
+		 .getParameter("txtOrcamento")));
+		 servicos.setDescricao_serv(request.getParameter("txtAreaOrcamento"));
+			 */
+			Servicos s = new Servicos();
+			Facade f = new Facade();
 
-		s.setTitulo_servico(request.getParameter("txtTituloServico"));
+			s.setTitulo_servico(request.getParameter("txtTituloServico"));
 
-		f.cadastrarservico(s);
-		request.setAttribute("msg", "Gravado com sucesso!");
-		response.sendRedirect("http://localhost:8085/2DEVS/Entrou.html");
+			f.cadastrarservico(s);
+			request.setAttribute("msg", "Gravado com sucesso!");
+			response.sendRedirect("http://localhost:8085/2DEVS/Entrou.html");
 	%>
 </body>
 </html>

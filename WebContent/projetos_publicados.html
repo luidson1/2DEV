@@ -1,66 +1,71 @@
 <!doctype html>
 <html>
 <head>
-<script type="text/javascript" src="cidades-estados-1.2-utf8.js"></script> 
+<script type="text/javascript" src="cidades-estados-1.2-utf8.js"></script>
 <script type="text/javascript">
-window.onload = function() {
-  new dgCidadesEstados({
-    estado: document.getElementById('estado'),
-    cidade: document.getElementById('cidade'),
-     estadoVal: '<%=Request("estado") %>',
-  cidadeVal: '<%=Request("cidade") %>'
-  });
-}
+	window.onload = function() {
+		new dgCidadesEstados({
+			estado : document.getElementById('estado'),
+			cidade : document.getElementById('cidade'),
+			estadoVal : '<%=Request("estado") %>',
+			cidadeVal : '<%=Request("cidade") %>'
+		});
+	}
 </script>
 <meta charset="UTF-8">
-<title>Untitled Document</title>
+
 <link href="estilos.css" rel="stylesheet" type="text/css">
 </head>
-
 <body>
-<table width="100%" border="0" cellspacing="2" cellpadding="0">
-  <tbody>
-    <tr>
-      <td class="textosTitulos">Categorias</td>
-      <td width="70%" rowspan="5">&nbsp;</td>
-    </tr>
-    <tr>
-      <td width="30%"><select class="selectFormulario">
-          <option value="0">Selecione a categoria</option>
-          <option value ="AL" > Advocacia e Leis</option>
-          <option value ="AG" > Animação Gráfica</option>
-          <option value ="Aq" > Arquitetura</option>
-          <option value ="DI" > Desenho Industrial</option>
-          <option value ="DG" > Design Gráfico</option>
-          <option value ="DA" > Direção de Arte</option>
-          <option value ="FT" > Fotografia</option>
-          <option value ="Il" > Ilustração </option>
-          <option value ="Inf" > Informática</option>
-          <option value ="MF" > Moda Figurino</option>
-          <option value ="PM" > Produção Musical</option>
-          <option value ="RadJ" > Redator / Jornalismo</option>
-          <option value ="SG" > Serviços Gerais</option>
-          <option value ="TD" > Tradução</option>
-          <option value ="Vd" > Vídeo / Cinema</option>
-        </select></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td class="textosTitulos">Localidade</td>
-    </tr>
-    <tr>
-      <td><form id="listaCidades" name="listaCidades" method="post" action="">
-  <label class="textosGeral">Estado</label>
-        <select name="estado" class="selectFormulario" id="estado" ></select>
-        <label><br>
-          <span class="textosGeral">Cidade</span></label>
-        <select name="cidade" class="selectFormulario" id="cidade"></select>
-  </form>
-</td>
-    </tr>
-  </tbody>
-</table>
+
+	<form action="ListarProjetos.jsp" method="post" target="_parent">
+
+		<table width="100%" border="0" cellspacing="2" cellpadding="0">
+			<tbody>
+				<tr>
+					<td class="textosTitulos">Categorias</td>
+					<td width="70%" rowspan="12">conteudo <br> <br> <input
+						type="submit" value="Pesquisar Serviços">
+
+					</td>
+				</tr>
+				<tr>
+					<td width="30%"><select class="selectFormulario">
+							<option value="0">Selecione a categoria</option>
+							<option value="AL">Advocacia e Leis</option>
+							<option value="AG">Animação Gráfica</option>
+							<option value="Aq">Arquitetura</option>
+							<option value="DI">Desenho Industrial</option>
+							<option value="DG">Design Gráfico</option>
+							<option value="DA">Direção de Arte</option>
+							<option value="FT">Fotografia</option>
+							<option value="Il">Ilustração</option>
+							<option value="Inf">Informática</option>
+							<option value="MF">Moda Figurino</option>
+							<option value="PM">Produção Musical</option>
+							<option value="RadJ">Redator / Jornalismo</option>
+							<option value="SG">Serviços Gerais</option>
+							<option value="TD">Tradução</option>
+							<option value="Vd">Vídeo / Cinema</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="textosTitulos">Localidade</td>
+				</tr>
+				<tr>
+					<td><form id="listaCidades" name="listaCidades" method="post"
+							action="">
+							<label class="textosGeral">Estado</label> <select name="estado"
+								class="selectFormulario" id="estado"></select> <label><br>
+								<span class="textosGeral">Cidade</span></label> <select name="cidade"
+								class="selectFormulario" id="cidade"></select>
+						</form></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
 </body>
 </html>

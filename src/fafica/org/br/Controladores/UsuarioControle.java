@@ -27,4 +27,15 @@ public class UsuarioControle {
 		return this.us.retornarUsuario(email, senha);
 	}
 
+	public void deletarUsuario(String cpf, String senha) {
+		// TODO Auto-generated method stub
+		this.us.deletarUsuario(cpf, senha);
+	}
+
+	public void alterarUsuario(Usuario u) {
+		// TODO Auto-generated method stub
+		this.us.alterarUsuario(u);
+		
+	}
+
 }

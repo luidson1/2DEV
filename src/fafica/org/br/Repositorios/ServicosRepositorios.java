@@ -1,7 +1,9 @@
 package fafica.org.br.Repositorios;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -48,6 +50,33 @@ public class ServicosRepositorios {
 
 		}
 
+	}
+
+	// Metodo Pesquisar Profissional para retornar NA JTABLE2.
+	public ArrayList<Servicos> listarServicos() {
+		String sql = "SELECT * FROM servicos";
+		ArrayList<Servicos> listaDeServicos = null;
+		try {
+			PreparedStatement pstmt = conexao.getConnection().prepareStatement(
+					sql);
+			ResultSet rs = pstmt.executeQuery();
+			listaDeServicos = new ArrayList<Servicos>();
+			while (rs.next()) {
+				Servicos s = new Servicos();
+				s.setCodigo(rs.getInt("codigo"));
+				s.setTitulo_servico(rs.getString("titulo_servico"));
+				s.setEstado(rs.getString("estado"));
+				s.setCidade(rs.getString("cidade"));
+				s.setOrcamento(rs.getFloat("orcamento"));
+				s.setCategoria(rs.getInt("categoria"));
+				listaDeServicos.add(s);
+
+			}
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null,
+					"ERRO NO BANCO DE DADOS= " + e.getMessage());
+		}
+		return listaDeServicos;
 	}
 
 }

@@ -1,6 +1,6 @@
 <%@page import="javax.websocket.SendResult"%>
 <%@page import="org.apache.catalina.ha.backend.Sender"%>
-<%@page import="fafica.org.br.Fachada.Fachada"%>
+<%@page import="fafica.org.br.Fachada.Facade"%>
 <%@page import="fafica.org.br.Modelo.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -11,26 +11,23 @@
 </head>
 <body>
 	<%
+		Usuario u = new Usuario();
+		u.setNome(request.getParameter("nome"));
+		u.setEmail(request.getParameter("email"));
+		u.setSenha(request.getParameter("senha"));
+		//		 if (u.setNome() != null) {
+		Facade f = new Facade();
+		f.cadastrarUsuario(u);
 
-	
-	
-			Usuario u = new Usuario();
-			u.setNome(request.getParameter("nome"));
-			u.setEmail(request.getParameter("email"));
-			u.setSenha(request.getParameter("senha"));
-			//		 if (u.setNome() != null) {
-			Fachada f = new Fachada();
-			f.cadastrarUsuario(u);
+		
+		
+		//	 } else {
+		//	 request.setAttribute("msg", "Preencha os campos vazios.");
+		//}
 
-			
-			
-			//	 } else {
-			//	 request.setAttribute("msg", "Preencha os campos vazios.");
-			//}
-
-			request.setAttribute("msg", "Gravado com sucesso!");
-			session.setAttribute("usuario", u);
-			response.sendRedirect("http://localhost:8085/2DEVS/Entrou.html");
+		request.setAttribute("msg", "Gravado com sucesso!");
+		session.setAttribute("usuario", u);
+		response.sendRedirect("http://localhost:8085/2DEVS/Entrou.html");
 	%>
 </body>
 </html>

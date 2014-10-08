@@ -3,8 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="D:/documentos/Aplicativos para Programação/mysql-connector-java-5.1.16/mysql-connector-java-5.1.16-bin.jar"/>
-	<classpathentry kind="lib" path="D:/documentos/Faculdade/4º periodo/Web/apache-tomcat-7.0.52/bin/tomcat-juli.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>
@@ -15,7 +13,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/jsdk20-patch.jar"/>
-	<classpathentry kind="lib" path="D:/documentos/Faculdade/5º periodo/PI2/cidades-estados-1.2-utf8.js"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.16-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

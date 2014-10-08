@@ -1,42 +1,69 @@
-<html> 
-<body bgcolor= "F0F1EF">
-<script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '1462347994031336',
-          xfbml      : true,
-          version    : 'v2.0'
-        });
-      };
+<html>
+<body bgcolor="F0F1EF">
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId : '1462347994031336',
+				xfbml : true,
+				version : 'v2.0'
+			});
+		};
 
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
-	 <script>
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) return;
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/pt_BR/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script> 
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {
+				return;
+			}
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+	<script>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id))
+				return;
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "//connect.facebook.net/pt_BR/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
 
-<form action = "cadastrar_usuario.jsp" method = "post" target = "_parent" >
-<br><br><br><br><br><Center><Font face = "Cambria" size = "7" color = "blue">Comece a usar agora mesmo.</font>
-<br><br><A HREF ="http://www.facebook.com.br" target ="_parent" > <img src= "facebook.jpg" width ="n%" height = "n%"  align = "center" border = "0"> </A></center>
-<br><br><Center><Font face = "Cambria" size = "5" color = "blue">Ou registre-se conosco</Center>
-<center><br><br><Font face =" Verdana" size = "3" color = "blue"> Seu Nome:  <input type= "text" name = "nome"  size = "" maxlenght = "value" value = ""></font>
-<Font face = "Verdana" size = "3" color = "blue"> Seu Email: <input type= "text" name = "email"  size = "" maxlenght = "value" value = ""></font>
-<Font face = "Verdana" size = "3" color = "blue"> Senha: <input type = "password" name = "senha" value = ""></font>
-<input type= "submit"  value = "Registrar">
-  
-</center>
-</form>
+	<form action="cadastrar_usuario.jsp" method="post" target="_parent">
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<Center>
+			<Font face="Cambria" size="7" color="blue">Comece a usar agora
+				mesmo.</font> <br>
+			<br>
+			<A HREF="http://www.facebook.com.br" target="_parent"> <img
+				src="facebook.jpg" width="n%" height="n%" align="center" border="0">
+			</A>
+		</center>
+		<br>
+		<br>
+		<Center>
+			<Font face="Cambria" size="5" color="blue">Ou registre-se
+				conosco
+		</Center>
+		<center>
+			<br>
+			<br>
+			<Font face=" Verdana" size="3" color="blue"> Seu Nome: <input
+				type="text" name="nome" size="" maxlenght="value" value=""></font>
+			<Font face="Verdana" size="3" color="blue"> Seu Email: <input
+				type="text" name="email" size="" maxlenght="value" value=""></font>
+			<Font face="Verdana" size="3" color="blue"> Senha: <input
+				type="password" name="senha" value=""></font> 
+				<input type="submit"value="Registrar">
+
+		</center>
+	</form>
 </body>
-</html>	
+</html>

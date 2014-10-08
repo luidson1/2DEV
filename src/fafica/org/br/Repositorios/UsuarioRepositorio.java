@@ -30,8 +30,8 @@ public class UsuarioRepositorio {
 			pstmt.execute();
 
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null, "Erro!!!!  " + e.getMessage());
 
+			e.printStackTrace();
 		}
 	}
 
@@ -110,6 +110,46 @@ public class UsuarioRepositorio {
 			throw ex;
 		}
 		return usr;
+
+	}
+
+	// deletar usuario no banco
+	public void deletarUsuario(String email, String senha) {
+		// TODO Auto-generated method stub
+		String sql = "DELETE FROM usuario WHERE email = ? and senha = ?";
+		try {
+
+			PreparedStatement pstmt = conexao.getConnection().prepareStatement(
+					sql);
+			pstmt.setString(1, email);
+			pstmt.setString(2, senha);
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	// alterar usuario no banco
+	public void alterarUsuario(Usuario u) {
+		// TODO Auto-generated method stub
+		String sql = "UPDATE usuario SET nome = ? , email = ?, senha = ?, endereco = ? , cidade = ? , uf = ?  WHERE email = ?";
+		try {
+			PreparedStatement pstmt = conexao.getConnection().prepareStatement(
+					sql);
+			pstmt.setString(1, u.getNome());
+			pstmt.setString(2, u.getEmail());
+			pstmt.setString(3, u.getSenha());
+			pstmt.setString(4, u.getEndereco());
+			pstmt.setString(5, u.getCidade());
+			pstmt.setString(6, u.getUf());
+			pstmt.execute();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
 
 	}
 }

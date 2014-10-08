@@ -1,5 +1,7 @@
 package fafica.org.br.Fachada;
 
+import java.util.ArrayList;
+
 import fafica.org.br.Controladores.ProfissionaisControle;
 import fafica.org.br.Controladores.ServicosControle;
 import fafica.org.br.Controladores.UsuarioControle;
@@ -7,15 +9,15 @@ import fafica.org.br.Modelo.Profissionais;
 import fafica.org.br.Modelo.Servicos;
 import fafica.org.br.Modelo.Usuario;
 
-public class Fachada {
-	private static Fachada instance = null;
+public class Facade {
+	private static Facade instance = null;
 
-	public Fachada() {
+	public Facade() {
 	}
 
-	public static Fachada getInstance() {
-		if (Fachada.instance == null) {
-			Fachada.instance = new Fachada();
+	public static Facade getInstance() {
+		if (Facade.instance == null) {
+			Facade.instance = new Facade();
 		}
 		return instance;
 	}
@@ -25,6 +27,13 @@ public class Fachada {
 		UsuarioControle usuariocontrol = new UsuarioControle();
 		usuariocontrol.cadastrarUsuario(usuario);
 	}
+	
+
+	// altera usuário
+	public void alterarUsuario(Usuario u) {
+		UsuarioControle control = new UsuarioControle();
+		control.alterarUsuario(u);
+		}
 
 	// validar login usuario
 	public boolean Login(String email, String senha) {
@@ -39,6 +48,11 @@ public class Fachada {
 		return controlu.retornarUsuario(email, senha);
 	}
 
+	// deletar usuario por cpf e senha
+public void deletarUsuario(String cpf, String senha) {
+	UsuarioControle control = new UsuarioControle();
+	control.deletarUsuario(cpf,senha);
+	}
 	// cadastrar serviços
 	public void cadastrarservico(Servicos servicos) {
 		ServicosControle control = new ServicosControle();
@@ -50,7 +64,19 @@ public class Fachada {
 			// TODO Auto-generated method stub
 			ProfissionaisControle control = new ProfissionaisControle();
 			control.cadastrar(profissionais);		
-		
-		
+			// listar servicos 
+	}	public ArrayList<Servicos> listarServicos() {
+		// TODO Auto-generated method stub
+		ServicosControle control = new ServicosControle();
+		return control.listarServicos();
 	}
+	// listar profissionas / curriculuns
+	public ArrayList<Profissionais> listarProfissionais() {
+		// TODO Auto-generated method stub
+		ProfissionaisControle pcontrol = new ProfissionaisControle();
+		return pcontrol.listarProfissionais();
+	}
+
+		
+		
 }

@@ -2,6 +2,7 @@ package fafica.org.br.Modelo;
 
 public class Servicos {
 
+	private int codigo;
 	private String Titulo_servico;
 	private int Categoria;
 	private String Estado;
@@ -14,8 +15,9 @@ public class Servicos {
 
 	}
 
-	public Servicos(String Titulo_servico, int Categoria, String Estado,
-			String Cidade, float Orcamento, String Descricao_serv) {
+	public Servicos(int codigo, String Titulo_servico, int Categoria,
+			String Estado, String Cidade, float Orcamento, String Descricao_serv) {
+		this.codigo = codigo;
 		this.Titulo_servico = Titulo_servico;
 		this.Categoria = Categoria;
 		this.Estado = Estado;
@@ -23,6 +25,14 @@ public class Servicos {
 		this.Orcamento = Orcamento;
 		this.Descricao_serv = Descricao_serv;
 
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getTitulo_servico() {
