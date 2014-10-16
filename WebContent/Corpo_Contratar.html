@@ -2,7 +2,7 @@
 <head>
 <meta charset="UTF-8">
 </head>
-<body bgcolor="E67E22">
+<body bgcolor="E67E22" target="_parent">
 	<script type="text/javascript" src="cidades-estados-1.2-utf8.js"></script>
 	<script type="text/javascript">
 		window.onload = function() {
@@ -14,16 +14,16 @@
 			});
 		}
 	</script>
-	<form method="post" action="enviar_contrato.jsp">
+	<form method="post" action="enviar_contrato.jsp" target= "_parent">
 		<table width="100%" height="100%" border="0" cellspacing="0"
 			cellpadding="0">
 			<tr>
 				<td valign="middle" align="center"><img src="contrateagora.jpg"
 					width="n%" height="n%" border="0" /></td>
 				<td valign="middle" align="left"><b> Título do Serviço:</b> <input
-					type="text" name="titulo" size="" 
-					value=""> <br> <br><br><b>Categoria: </b><select
-					name="categoria">
+					type="text" name="titulo" size="" value=""> <br> <br>
+				<br>
+				<b>Categoria: </b><select name="categoria">
 						<option value="Escolha" selected="selected">Escolha uma
 							categoria</option>
 						<option value="01">Advocacia e Leis</option>
@@ -46,14 +46,17 @@
 					<label><br> <br> <span class="textosGeral"><b>Cidade:
 						</b></span></label> <select name="cidade" class="selectFormulario" id="cidade"></select>
 					<br> <br> <b>Orçamento: </b> <input type="text"
-					name="txtOrcamento" size=""  value=" "> 
-					<br><br><b>Descreva o trabalho que deva ser realizado: </b><br /> <textarea
+					name="txtOrcamento" size="" value=" "> <br> <br>
+					<b>Duração Estimada: </b> <input type="text" name="txtDuracao"
+					size="" value=" "> <br>
+				<br>
+				<b>Descreva o trabalho que deva ser realizado: </b><br /> <textarea
 						name="txtAreaOrcamento" rows="5" cols="70">
-</textarea>  <br> <input type="submit" value="Enviar"> <input
+</textarea> <br> <input type="submit" value="Enviar"> <input
 					type="reset" value="Limpar"></td>
 			</tr>
 			</tbody>
 		</table>
-</form>
+	</form>
 </body>
 </html>

@@ -62,7 +62,7 @@ Categoria int (20),
 
 primary key (codigo)
 );
-);
+
 
 --TABELA CATEGORIA
 CREATE TABLE categoria (

@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
-<body>
+<body target="_parent">
 	<%
 		try {
 
@@ -27,9 +27,12 @@
 
 			f.cadastrarprofissional(p);
 
+			request.setAttribute("msg", "Serviço lançado!");
+			request.setAttribute("Profissao", Profissao);
+			response.sendRedirect("http://localhost:8085/2DEVS/Buscar_profissionais.html");
+
 		} catch (Exception e) {
 			e.printStackTrace();
-			//JOptionPane.showMessageDialog(null, e.getMessage());
 		}
 	%>
 </body>

@@ -38,12 +38,12 @@ public class Listar_Profissionais extends HttpServlet {
 		ArrayList<Profissionais> profissionais = f.listarProfissionais();
 		String mensagem = "";
 
-		if (profissionais.isEmpty()) {
+		if (profissionais == null ||profissionais.isEmpty()) {
 
 			mensagem = "Nada Cadastrado";
 
 			request.setAttribute("mensagem", mensagem);
-			RequestDispatcher rd = request.getRequestDispatcher("/Entrou.html");
+			RequestDispatcher rd = request.getRequestDispatcher("/Error.html");
 			rd.forward(request, response);
 
 		} else {

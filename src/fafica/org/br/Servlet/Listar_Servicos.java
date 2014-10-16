@@ -45,7 +45,7 @@ public class Listar_Servicos extends HttpServlet {
 			mensagem = "Nada Cadastrado";
 
 			request.setAttribute("mensagem", mensagem);
-			RequestDispatcher rd = request.getRequestDispatcher("/Entrou.html");
+			RequestDispatcher rd = request.getRequestDispatcher("Error.html");
 			rd.forward(request, response);
 
 		} else {

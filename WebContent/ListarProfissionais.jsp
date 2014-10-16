@@ -1,13 +1,11 @@
-<%@page import="java.util.List"%>
-<%@page import="fafica.org.br.Modelo.Usuario"%>
-<%@page import="fafica.org.br.Modelo.Servicos"%>
+<%@page import="fafica.org.br.Modelo.Profissionais"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="fafica.org.br.Fachada.Facade"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <script type="text/javascript" src="cidades-estados-1.2-utf8.js"></script>
 <script type="text/javascript">
@@ -18,51 +16,49 @@
 			estadoVal : '<%=("estado")%>',
 			cidadeVal : '<%=("cidade")%>'
 	
+
 		});
 	}
 </script>
-<meta charset="UTF-8">
-
 <link href="estilos.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-
-	<form action="Listar_Servicos" method="get" >
-
+	<form action="Listar_Profissionais" method="get" target="_parent">
 		<table width="100%" border="0" cellspacing="2" cellpadding="0">
 			<tbody>
 				<tr>
 					<td class="textosTitulos">Categorias</td>
 					<td width="70%" rowspan="12">
-
 						<table border="1" cellspacing="0" cellpadding="0">
 							<thead>
 								<tr>
 									<td>Codigo</td>
-									<td>Titulo</td>
-									<td>Estado</td>
-									<td>Opção</td>
+									<td>Profissao</td>
+									<td>Positivos</td>
+									<td>Negativos</td>
+
 								</tr>
 							</thead>
 							<tbody>
 								<%
-									ArrayList<Servicos> servicos = (ArrayList<Servicos>) request
-											.getAttribute("servicos");
-									if (servicos == null) {
+									ArrayList<Profissionais> profissionais = (ArrayList<Profissionais>) request
+											.getAttribute("profissionais");
+									if (profissionais == null) {
 								%>
 								<tr>
 									<td>Nenhum Registro cadastrado!!</td>
 								</tr>
 								<%
 									} else {
-										for (Servicos servico : servicos) {
+										for (Profissionais profissional : profissionais) {
 								%>
 								<tr>
-									<td><%=servico.getCodigo()%></td>
-									<td><%=servico.getTitulo_servico()%></td>
-									<td><%=servico.getEstado()%></td>
+									<td><%=profissional.getCodigo1()%></td>
+									<td><%=profissional.getProfissao()%></td>
+									<td><%=profissional.getPositivos()%></td>
+									<td><%=profissional.getNegativos()%></td>
 									<td><a
-										href="Detalhar_Projeto.html?id=<%=servico.getCodigo()%>" target ="_parent">Visualizar</a>
+										href="Exibir_Curriculum.html?id=<%=profissional.getCodigo1()%>" target ="_parent">Vizualizar</a>
 									</td>
 								</tr>
 								<%
@@ -70,9 +66,9 @@
 									} // fecha else
 								%>
 							</tbody>
-						</table> <br> <br> <input type="submit"
-						value="Pesquisar Serviços">
-
+					</table> <br> <br> <input type="submit"
+						value="Pesquisar Profissionais">
+	
 					</td>
 				</tr>
 				<tr>
@@ -102,16 +98,41 @@
 					<td class="textosTitulos">Localidade</td>
 				</tr>
 				<tr>
-					<td>	<label class="textosGeral">Estado</label> <select name="estado"
+					<td>
+							<label class="textosGeral">Estado</label> <select name="estado"
 								class="selectFormulario" id="estado"></select> <label><br>
 								<span class="textosGeral">Cidade</span></label> <select name="cidade"
 								class="selectFormulario" id="cidade"></select>
-						</form></td>
+						</td>
+				</tr>
+				<tr>
+					<td class="textosTitulos">Avaliação</td>
+				</tr>
+				<tr>
+					<td><input type="radio" id="todos" checked>Todos</td>
+				</tr>
+				<tr>
+					<td><input type="radio" id="01"><img src="01.png"
+						width="112" height="20" /></td>
+				</tr>
+				<tr>
+					<td><input type="radio" id="02"><img src="02.png"
+						width="112" height="20" /></td>
+				</tr>
+				<tr>
+					<td><input type="radio" id="03"><img src="03.png"
+						width="112" height="20" /></td>
+				</tr>
+				<tr>
+					<td><input type="radio" id="04"><img src="04.png"
+						width="112" height="20" /></td>
+				</tr>
+				<tr>
+					<td><input type="radio" id="05"><img src="05.png"
+						width="112" height="20" /></td>
 				</tr>
 			</tbody>
 		</table>
-	</form>
-
-
+</form>
 </body>
 </html>

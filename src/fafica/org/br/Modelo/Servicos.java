@@ -9,6 +9,7 @@ public class Servicos {
 	private String Cidade;
 	private float Orcamento;
 	private String Descricao_serv;
+	private String Duracao;
 
 	public Servicos() {
 		// TODO Auto-generated constructor stub
@@ -16,7 +17,8 @@ public class Servicos {
 	}
 
 	public Servicos(int codigo, String Titulo_servico, int Categoria,
-			String Estado, String Cidade, float Orcamento, String Descricao_serv) {
+			String Estado, String Cidade, float Orcamento,
+			String Descricao_serv, String Duracao) {
 		this.codigo = codigo;
 		this.Titulo_servico = Titulo_servico;
 		this.Categoria = Categoria;
@@ -24,7 +26,15 @@ public class Servicos {
 		this.Cidade = Cidade;
 		this.Orcamento = Orcamento;
 		this.Descricao_serv = Descricao_serv;
+		this.Duracao = Duracao;
+	}
 
+	public String getDuracao() {
+		return Duracao;
+	}
+
+	public void setDuracao(String duracao) {
+		Duracao = duracao;
 	}
 
 	public int getCodigo() {

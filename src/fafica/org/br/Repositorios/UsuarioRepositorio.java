@@ -61,8 +61,8 @@ public class UsuarioRepositorio {
 
 	}
 
+	// retornar usuario
 	public Usuario retornarUsuario(String email, String senha) {
-		// retornar usuario
 		String sql = "SELECT email,senha FROM usuario where email = ?";
 		Usuario u = new Usuario();
 		try {
@@ -73,7 +73,7 @@ public class UsuarioRepositorio {
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				u.setEmail(rs.getString("email"));
-				u.setEmail(rs.getString("senha"));
+				u.setSenha(rs.getString("senha"));
 			}
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "ERRO = " + e.getMessage());
@@ -83,7 +83,7 @@ public class UsuarioRepositorio {
 	}
 
 	public Usuario buscarUsuario(Usuario usuario) throws SQLException {
-		String sql = " SELECT * FROM Usuario WHERE email = ? and senha = ? ";
+		String sql = " SELECT * FROM Usuario WHERE email = ?";
 		Usuario usr = null;
 
 		try {
@@ -92,7 +92,12 @@ public class UsuarioRepositorio {
 					sql);
 			pstmt.execute();
 			pstmt.setString(1, usuario.getNome());
-			pstmt.setString(2, usuario.getSenha());
+			pstmt.setString(2, usuario.getEmail());
+			pstmt.setString(3, usuario.getSenha());
+			pstmt.setString(4, usuario.getEndereco());
+			pstmt.setString(5, usuario.getCidade());
+			pstmt.setString(6, usuario.getUf());
+			pstmt.execute();
 
 			ResultSet rs = pstmt.executeQuery();
 
@@ -107,7 +112,7 @@ public class UsuarioRepositorio {
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			throw ex;
+
 		}
 		return usr;
 
@@ -152,4 +157,5 @@ public class UsuarioRepositorio {
 		}
 
 	}
+
 }

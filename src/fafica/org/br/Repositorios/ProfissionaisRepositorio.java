@@ -50,7 +50,8 @@ public class ProfissionaisRepositorio {
 			listaDeProfissionais = new ArrayList<Profissionais>();
 			while (rs.next()) {
 				Profissionais p = new Profissionais();
-				p.setCodigo1(rs.getInt("codigo"));
+				p.setCodigo1(rs.getInt("codigo1"));
+				p.setProfissao(rs.getString("profissao"));
 				p.setDescricao_profissional(rs
 						.getString("descricao_profissional"));
 				p.setDescricao_experiencia(rs

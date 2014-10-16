@@ -27,7 +27,7 @@ public class ServicosRepositorios {
 	public void cadastrarservico(Servicos servicos) {
 		// TODO Auto-generated method stub
 		// codigo inserir o serviço no banco
-		String sql = "insert into servicos (Titulo_servico, Estado, Cidade, Orcamento, Descricao_serv, Categoria) values (?, ?, ?, ?, ?, ?)";
+		String sql = "insert into servicos (Titulo_servico, Estado, Cidade, Orcamento, Descricao_serv, Categoria, Duracao) values (?, ?, ?, ?, ?, ?,?)";
 		try {
 			// conexão com o banco
 			PreparedStatement pstmt = conexao.getConnection().prepareStatement(
@@ -39,15 +39,12 @@ public class ServicosRepositorios {
 			pstmt.setFloat(4, servicos.getOrcamento());
 			pstmt.setString(5, servicos.getDescricao_serv());
 			pstmt.setInt(6, servicos.getCategoria());
+			pstmt.setString(7, servicos.getDuracao());
 
 			pstmt.execute(); // executar atualização no banco
 			// exibir que o serviço foi cadastrado
-			JOptionPane.showMessageDialog(null,
-					"Serviço Lançado no sistema com Sucesso! ");
-
 		} catch (SQLException e) { // tratando o erro no banco
-			JOptionPane.showMessageDialog(null, "Erro!!!!  " + e.getMessage());
-
+			e.printStackTrace();
 		}
 
 	}
@@ -73,8 +70,7 @@ public class ServicosRepositorios {
 
 			}
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null,
-					"ERRO NO BANCO DE DADOS= " + e.getMessage());
+			e.printStackTrace();
 		}
 		return listaDeServicos;
 	}
