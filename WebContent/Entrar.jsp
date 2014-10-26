@@ -16,7 +16,7 @@
 	<%
 		}
 	%>
-	<form action="autentica.jsp" method="post" target="_parent">
+	<form action="Login_Servlet" method="post" target="_parent">
 		<br> <br> <br> <br> <br>
 		<Center>
 			<Font style="face: Cambria; size: 7; color: blue"> DADOS PARA
@@ -35,9 +35,9 @@
 		</Center>
 		<center>
 			<br> <br> <Font face="Verdana" size="3" color="blue">
-				Seu Email: <input type="text" name="txtEmail" size="" value="">
+				Seu Email: <input type="text" name="email" size="" value="">
 			</font> <Font face="Verdana" size="3" color="blue"> Senha: <input
-				type="password" name="txtSenha" value=""></font> <input
+				type="password" name="senha" value=""></font> <input
 				type="submit" value="Entrar">
 		</center>
 	</form>

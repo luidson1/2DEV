@@ -38,7 +38,7 @@ public class ProfissionaisRepositorio {
 		}
 
 	}
-
+// listar profissionais
 	public ArrayList<Profissionais> listarProfissionais() {
 		// TODO Auto-generated method stub
 		String sql = "SELECT * FROM profissionais";
@@ -66,5 +66,37 @@ public class ProfissionaisRepositorio {
 		}
 		return listaDeProfissionais;
 	}
+// deletar profissional
+	public void deletarProfissional(int codigo1){
+		String sql = "DELETE FROM profissionais WHERE codigo1 = ?";
+		try {
 
+			PreparedStatement pstmt = conexao.getConnection().prepareStatement(
+					sql);
+			pstmt.setInt(1, codigo1);
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	// alterar profissional
+	public void alterarProfissional(Profissionais p){
+		String sql = "UPDATE profissionais SET profissao = ? , descricao_profissional = ?, descricao_experiencia = ? WHERE codigo1 = ?";
+		try {
+			PreparedStatement pstmt = conexao.getConnection().prepareStatement(
+					sql);
+			pstmt.setString(1, p.getProfissao());
+			pstmt.setString(2, p.getDescricao_profissional());
+			pstmt.setString(3, p.getDescricao_experiencia());
+			pstmt.execute();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+
+		
+	}
 }

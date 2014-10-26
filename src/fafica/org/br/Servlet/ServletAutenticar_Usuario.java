@@ -16,16 +16,16 @@ import fafica.org.br.Fachada.Facade;
 import fafica.org.br.Modelo.Usuario;
 
 /**
- * Servlet implementation class ServletCadastra_Usuario
+ * Servlet implementation class ServletAutenticar_Usuario
  */
-@WebServlet("/ServletCadastra_Usuario")
-public class ServletCadastra_Usuario extends HttpServlet {
+@WebServlet("/ServletAutenticar_Usuario")
+public class ServletAutenticar_Usuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletCadastra_Usuario() {
+    public ServletAutenticar_Usuario() {
         super();
         // TODO Auto-generated constructor stub
     }

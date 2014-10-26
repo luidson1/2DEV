@@ -3,10 +3,12 @@ package fafica.org.br.Repositorios;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import fafica.org.br.Conexao.ConexaoMySql;
+import fafica.org.br.Modelo.Profissionais;
 import fafica.org.br.Modelo.Usuario;
 
 public class UsuarioRepositorio {
@@ -69,6 +71,7 @@ public class UsuarioRepositorio {
 			PreparedStatement pstmt = conexao.getConnection().prepareStatement(
 					sql);
 			pstmt.setString(1, email);
+			pstmt.setString(2, senha);
 			pstmt.execute();
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
@@ -76,12 +79,13 @@ public class UsuarioRepositorio {
 				u.setSenha(rs.getString("senha"));
 			}
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "ERRO = " + e.getMessage());
+			e.printStackTrace();
 		}
 
 		return u;
 	}
 
+	// buscar usuario no banco por email
 	public Usuario buscarUsuario(Usuario usuario) throws SQLException {
 		String sql = " SELECT * FROM Usuario WHERE email = ?";
 		Usuario usr = null;
@@ -119,15 +123,14 @@ public class UsuarioRepositorio {
 	}
 
 	// deletar usuario no banco
-	public void deletarUsuario(String email, String senha) {
+	public void deletarUsuario(String email) {
 		// TODO Auto-generated method stub
-		String sql = "DELETE FROM usuario WHERE email = ? and senha = ?";
+		String sql = "DELETE FROM usuario WHERE email = ?";
 		try {
 
 			PreparedStatement pstmt = conexao.getConnection().prepareStatement(
 					sql);
 			pstmt.setString(1, email);
-			pstmt.setString(2, senha);
 			pstmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -149,13 +152,40 @@ public class UsuarioRepositorio {
 			pstmt.setString(4, u.getEndereco());
 			pstmt.setString(5, u.getCidade());
 			pstmt.setString(6, u.getUf());
+			pstmt.setString(7, u.getEmail());
 			pstmt.execute();
+
+			JOptionPane.showMessageDialog(null, "alterou");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 
 		}
 
+	}
+
+	// listar usuarios
+	public ArrayList<Usuario> listarUsuarios() {
+		// TODO Auto-generated method stub
+		String sql = "SELECT * FROM usuario";
+		ArrayList<Usuario> listaDeUsuarios = null;
+		try {
+			PreparedStatement pstmt = conexao.getConnection().prepareStatement(
+					sql);
+			ResultSet rs = pstmt.executeQuery();
+			listaDeUsuarios = new ArrayList<Usuario>();
+			while (rs.next()) {
+				Usuario u = new Usuario();
+				u.setNome(rs.getString("nome"));
+				u.setEmail(rs.getString("email"));
+				u.setAvaliacao(rs.getInt("reputacao"));
+				listaDeUsuarios.add(u);
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listaDeUsuarios;
 	}
 
 }

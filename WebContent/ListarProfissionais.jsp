@@ -14,8 +14,8 @@
 			estado : document.getElementById('estado'),
 			cidade : document.getElementById('cidade'),
 			estadoVal : '<%=("estado")%>',
-			cidadeVal : '<%=("cidade")%>'
-	
+			cidadeVal : '<%=("cidade")%>
+	'
 
 		});
 	}
@@ -58,7 +58,7 @@
 									<td><%=profissional.getPositivos()%></td>
 									<td><%=profissional.getNegativos()%></td>
 									<td><a
-										href="Exibir_Curriculum.html?id=<%=profissional.getCodigo1()%>" target ="_parent">Vizualizar</a>
+										href="ExcluirProfissionais_Servlet?codigo1=<%=profissional.getCodigo1()%>">Excluir</a>
 									</td>
 								</tr>
 								<%
@@ -66,9 +66,9 @@
 									} // fecha else
 								%>
 							</tbody>
-					</table> <br> <br> <input type="submit"
+						</table> <br> <br> <input type="submit"
 						value="Pesquisar Profissionais">
-	
+
 					</td>
 				</tr>
 				<tr>
@@ -98,12 +98,10 @@
 					<td class="textosTitulos">Localidade</td>
 				</tr>
 				<tr>
-					<td>
-							<label class="textosGeral">Estado</label> <select name="estado"
-								class="selectFormulario" id="estado"></select> <label><br>
-								<span class="textosGeral">Cidade</span></label> <select name="cidade"
-								class="selectFormulario" id="cidade"></select>
-						</td>
+					<td><label class="textosGeral">Estado</label> <select
+						name="estado" class="selectFormulario" id="estado"></select> <label><br>
+							<span class="textosGeral">Cidade</span></label> <select name="cidade"
+						class="selectFormulario" id="cidade"></select></td>
 				</tr>
 				<tr>
 					<td class="textosTitulos">Avaliação</td>
@@ -133,6 +131,6 @@
 				</tr>
 			</tbody>
 		</table>
-</form>
+	</form>
 </body>
 </html>

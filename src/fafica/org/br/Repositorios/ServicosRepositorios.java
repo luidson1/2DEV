@@ -49,7 +49,7 @@ public class ServicosRepositorios {
 
 	}
 
-	// Metodo Pesquisar Profissional para retornar NA JTABLE2.
+	// Metodo Pesquisar Servicos
 	public ArrayList<Servicos> listarServicos() {
 		String sql = "SELECT * FROM servicos";
 		ArrayList<Servicos> listaDeServicos = null;
@@ -73,6 +73,44 @@ public class ServicosRepositorios {
 			e.printStackTrace();
 		}
 		return listaDeServicos;
+	}
+
+	// deletar servico
+	public void deletarServicos(int codigo) {
+		// TODO Auto-generated method stub
+		String sql = "DELETE FROM servicos WHERE codigo = ?";
+		try {
+
+			PreparedStatement pstmt = conexao.getConnection().prepareStatement(
+					sql);
+			pstmt.setInt(1, codigo);
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+// alterar servicos
+	public void alterarServicos(Servicos servicos) {
+		String sql = "UPDATE servicos SET Titulo_servico = ? , Estado = ?, Cidade = ?, Orcamento = ? , Descricao_serv = ? , Categoria = ?, Duracao = ?  WHERE codigo = ?";
+		try {
+			PreparedStatement pstmt = conexao.getConnection().prepareStatement(
+					sql);
+			pstmt.setString(1, servicos.getTitulo_servico());
+			pstmt.setString(2, servicos.getEstado());
+			pstmt.setString(3, servicos.getCidade());
+			pstmt.setFloat(4, servicos.getOrcamento());
+			pstmt.setString(5, servicos.getDescricao_serv());
+			pstmt.setInt(6, servicos.getCategoria());
+			pstmt.setString(7, servicos.getDuracao());
+			pstmt.execute();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+
 	}
 
 }

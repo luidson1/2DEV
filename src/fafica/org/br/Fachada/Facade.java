@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import fafica.org.br.Controladores.ProfissionaisControle;
 import fafica.org.br.Controladores.ServicosControle;
-import fafica.org.br.Controladores.UsuarioControl;
 import fafica.org.br.Controladores.UsuarioControle;
 import fafica.org.br.Modelo.Profissionais;
 import fafica.org.br.Modelo.Servicos;
@@ -23,18 +22,13 @@ public class Facade {
 		return instance;
 	}
 
-	public void cadastrarErico(Usuario u) {
-		UsuarioControl control = new UsuarioControl();
-		control.inserirErico(u);
-	}
-	
 	// Cadastrar usuário
 	public void cadastrarUsuario(Usuario usuario) {
 		UsuarioControle usuariocontrol = new UsuarioControle();
 		usuariocontrol.cadastrarUsuario(usuario);
 	}
 
-	// Editar usuário
+	// Alterar usuário
 	public void alterarUsuario(Usuario u) {
 		UsuarioControle control = new UsuarioControle();
 		control.alterarUsuario(u);
@@ -54,12 +48,10 @@ public class Facade {
 	}
 
 	// deletar usuario por cpf e senha
-	public void deletarUsuario(String cpf, String senha) {
+	public void deletarUsuario(String email) {
 		UsuarioControle control = new UsuarioControle();
-		control.deletarUsuario(cpf, senha);
+		control.deletarUsuario(email);
 	}
-
-
 
 	// cadastrar serviços
 	public void cadastrarservico(Servicos servicos) {
@@ -67,17 +59,31 @@ public class Facade {
 		control.cadastrarservico(servicos);
 	}
 
-	// cadastrar profissional
-	public void cadastrarprofissional(Profissionais profissionais) {
-		// TODO Auto-generated method stub
-		ProfissionaisControle control = new ProfissionaisControle();
-		control.cadastrar(profissionais);
-	}
 	// listar servicos
 	public ArrayList<Servicos> listarServicos() {
 		// TODO Auto-generated method stub
 		ServicosControle control = new ServicosControle();
 		return control.listarServicos();
+	}
+
+	// alterar servicos
+	public void alterarServicos(Servicos servicos) {
+		ServicosControle controls = new ServicosControle();
+		controls.alterarServicos(servicos);
+	}
+
+	// deletar serviços
+	public void deletarServicos(int codigo) {
+		ServicosControle controls = new ServicosControle();
+		controls.DeletarServicos(codigo);
+
+	}
+
+	// cadastrar profissional
+	public void cadastrarprofissional(Profissionais profissionais) {
+		// TODO Auto-generated method stub
+		ProfissionaisControle control = new ProfissionaisControle();
+		control.cadastrar(profissionais);
 	}
 
 	// listar profissionas / curriculuns
@@ -87,4 +93,20 @@ public class Facade {
 		return pcontrol.listarProfissionais();
 	}
 
-}
+	// alterar profissional
+	public void alterarProfissional(Profissionais p){
+		ProfissionaisControle pcontrol = new ProfissionaisControle();
+		pcontrol.alterarProfissional(p);
+	}
+	// deletar profissional
+	public void deletarProfissional(int codigo1){
+		ProfissionaisControle pcontrol = new ProfissionaisControle();
+		pcontrol.deletarProfissional(codigo1);
+	}
+// listar usuarios
+	public ArrayList<Usuario> listarUsuarios() {
+		// TODO Auto-generated method stub
+		UsuarioControle controlu = new UsuarioControle();
+			return controlu.listarUsuarios();
+		}
+	}

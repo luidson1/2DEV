@@ -62,7 +62,7 @@
 									<td><%=servico.getTitulo_servico()%></td>
 									<td><%=servico.getEstado()%></td>
 									<td><a
-										href="Detalhar_Projeto.html?id=<%=servico.getCodigo()%>" target ="_parent">Visualizar</a>
+										href="ExcluirServicos_Servlet?codigo=<%=servico.getCodigo()%>" >Excluir</a>
 									</td>
 								</tr>
 								<%
