@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fafica.org.br.Fachada.Facade;
+import fafica.org.br.Modelo.Servicos;
 import fafica.org.br.Modelo.Usuario;
 
 /**
@@ -17,52 +18,54 @@ import fafica.org.br.Modelo.Usuario;
 @WebServlet("/EditarServicos_Servlet")
 public class EditarServicos_Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public EditarServicos_Servlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public EditarServicos_Servlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	
-		String nome = request.getParameter("nome");
-		String endereco = request.getParameter("endereco");
-		String cidade = request.getParameter("cidade");
-		String uf = request.getParameter("uf");
-		String email = request.getParameter("email");
-		String senha = request.getParameter("senha");
-		Usuario u = new Usuario();
+		int codigo = Integer.parseInt(request.getParameter("codigo_servico"));
+		String titulo_servico = request.getParameter("titulo_servico");
+		float orcamento = Float.parseFloat(request.getParameter("orcamento"));
+		String duracao = request.getParameter("duracao");
+		String desc_trabalho = request.getParameter("descricao_trabalho");
+
+		Servicos s = new Servicos();
+
 		Facade f = new Facade();
 
 		try {
-			u.setNome(nome);
-			u.setEndereco(endereco);
-			u.setCidade(cidade);
-			u.setUf(uf);
-			u.setEmail(email);
-			u.setSenha(senha);
+			s.setCodigo(codigo);
+			s.setTitulo_servico(titulo_servico);
+			s.setOrcamento(orcamento);
+			s.setDuracao(duracao);
+			s.setDescricao_serv(desc_trabalho);
 
-			f.alterarUsuario(u);
+			f.alterarServicos(s);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-	
 	}
 
 }

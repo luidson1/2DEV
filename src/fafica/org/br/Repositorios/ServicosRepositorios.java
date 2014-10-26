@@ -93,17 +93,15 @@ public class ServicosRepositorios {
 	}
 // alterar servicos
 	public void alterarServicos(Servicos servicos) {
-		String sql = "UPDATE servicos SET Titulo_servico = ? , Estado = ?, Cidade = ?, Orcamento = ? , Descricao_serv = ? , Categoria = ?, Duracao = ?  WHERE codigo = ?";
+		String sql = "UPDATE servicos SET Titulo_servico = ? , Orcamento = ? , Descricao_serv = ? , Duracao = ?  WHERE codigo = ?";
 		try {
 			PreparedStatement pstmt = conexao.getConnection().prepareStatement(
 					sql);
 			pstmt.setString(1, servicos.getTitulo_servico());
-			pstmt.setString(2, servicos.getEstado());
-			pstmt.setString(3, servicos.getCidade());
-			pstmt.setFloat(4, servicos.getOrcamento());
-			pstmt.setString(5, servicos.getDescricao_serv());
-			pstmt.setInt(6, servicos.getCategoria());
-			pstmt.setString(7, servicos.getDuracao());
+			pstmt.setFloat(2, servicos.getOrcamento());
+			pstmt.setString(3, servicos.getDescricao_serv());
+			pstmt.setString(4, servicos.getDuracao());
+			pstmt.setInt(5, servicos.getCodigo());
 			pstmt.execute();
 
 		} catch (SQLException e) {

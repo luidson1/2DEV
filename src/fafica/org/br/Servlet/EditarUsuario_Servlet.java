@@ -66,5 +66,4 @@ public class EditarUsuario_Servlet extends HttpServlet {
 		}
 
 	}
-
 }

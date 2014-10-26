@@ -90,6 +90,7 @@ public class ProfissionaisRepositorio {
 			pstmt.setString(1, p.getProfissao());
 			pstmt.setString(2, p.getDescricao_profissional());
 			pstmt.setString(3, p.getDescricao_experiencia());
+			pstmt.setInt(4, p.getCodigo1());
 			pstmt.execute();
 
 		} catch (SQLException e) {
